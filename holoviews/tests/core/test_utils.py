@@ -16,29 +16,29 @@ import pytest
 import holoviews as hv
 from holoviews.core import util
 from holoviews.core.util import (
-  closest_match,
-  compute_density,
-  compute_edges,
-  cross_index,
-  date_range,
-  deephash,
-  dimension_range,
-  dt_to_int,
-  dtype_kind,
-  find_range,
-  get_path,
-  is_nan,
-  is_null_or_na_scalar,
-  isdatetime,
-  isfinite,
-  make_path_unique,
-  max_range,
-  merge_dimensions,
-  sanitize_identifier_fn,
-  search_indices,
-  tree_attribute,
-  unique_array,
-  wrap_tuple_streams,
+    closest_match,
+    compute_density,
+    compute_edges,
+    cross_index,
+    date_range,
+    deephash,
+    dimension_range,
+    dt_to_int,
+    dtype_kind,
+    find_range,
+    get_path,
+    is_nan,
+    is_null_or_na_scalar,
+    isdatetime,
+    isfinite,
+    make_path_unique,
+    max_range,
+    merge_dimensions,
+    sanitize_identifier_fn,
+    search_indices,
+    tree_attribute,
+    unique_array,
+    wrap_tuple_streams,
 )
 from holoviews.core.util.types import masked_types
 from holoviews.streams import PointerXY
@@ -49,16 +49,16 @@ sanitize_identifier = sanitize_identifier_fn.instance()
 
 @pytest.fixture
 def with_pandas(request, monkeypatch):
-  """Fixture to control pandas availability"""
-  if request.param:
-      pytest.importorskip("pandas")
-  else:
-      monkeypatch.setattr(util, 'pd', None)
+    """Fixture to control pandas availability"""
+    if request.param:
+        pytest.importorskip("pandas")
+    else:
+        monkeypatch.setattr(util, 'pd', None)
 
 
 def with_and_without_pandas(func):
-  """Decorator to test both with and without pandas"""
-  return pytest.mark.parametrize("with_pandas", [True, False], indirect=True, ids=["with_pandas", "without_pandas"])(func)
+    """Decorator to test both with and without pandas"""
+    return pytest.mark.parametrize("with_pandas", [True, False], indirect=True, ids=["with_pandas", "without_pandas"])(func)
 
 
 class TestDeepHash:
